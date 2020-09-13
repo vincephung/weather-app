@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormDisplay from './FormDisplay';
 import WeatherCard from './WeatherCard';
 import ChangeBackground from './ChangeBackground';
@@ -16,6 +16,7 @@ const FormContainer = () => {
 
   const getWeatherData = async (location) => {
     try {
+      setError(false);
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=09cb87e3b19945bb6949563cd21ace23`;
       const response = await fetch(url, { mode: 'cors' });
 
@@ -30,6 +31,8 @@ const FormContainer = () => {
       throw new Error(err);
     }
   };
+
+  //useEffect(() => {});
 
   return (
     <div className="formContainer">
