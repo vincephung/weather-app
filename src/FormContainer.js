@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FormDisplay from './FormDisplay';
 import WeatherCard from './WeatherCard';
 import ChangeBackground from './ChangeBackground';
