@@ -16,7 +16,6 @@ const FormContainer = () => {
 
   const getWeatherData = async (location) => {
     try {
-      setError(false);
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=09cb87e3b19945bb6949563cd21ace23`;
       const response = await fetch(url, { mode: 'cors' });
 
@@ -39,7 +38,7 @@ const FormContainer = () => {
       <FormDisplay getWeatherData={getWeatherData} />
       {weatherData !== null ? <WeatherCard data={weatherData} /> : null}
       {weatherData !== null ? <ChangeBackground data={weatherData} /> : null}
-      {error && !weatherData ? <DisplayError /> : null}
+      {error && weatherData !== null ? <DisplayError /> : null}
     </div>
   );
 };
